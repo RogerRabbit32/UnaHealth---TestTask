@@ -29,7 +29,9 @@ class GlucoseLevel(models.Model):
         choices=TEST_TYPE_CHOICES,
     )
 
-    glucose_value = models.PositiveIntegerField()
+    glucose_value = models.PositiveIntegerField(
+        null=True,
+    )
 
     def __str__(self):
         return f"Glucose Level {self.id} for User {self.user.username}"
