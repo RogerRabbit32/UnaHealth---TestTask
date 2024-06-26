@@ -3,6 +3,7 @@ import csv
 import openpyxl
 from datetime import datetime
 from django.contrib.auth.models import User
+from django.db import transaction
 from django.http import HttpResponse
 from django.utils.dateformat import format as date_format
 from io import StringIO
@@ -10,6 +11,7 @@ from io import StringIO
 from .models import GlucoseLevel
 
 
+@transaction.atomic
 def parse_glucose_data(csv_file, user_id):
     """ This function reads the csv file data
     (previously converted into binary format)

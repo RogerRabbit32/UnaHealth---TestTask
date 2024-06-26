@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from .views import GlucoseLevelViewSet
 
 router = DefaultRouter()
-router.register(r'levels', GlucoseLevelViewSet)
+router.register(r'levels', GlucoseLevelViewSet, basename='glucoselevel')
 
 urlpatterns = [
     path('', include(router.urls)),
